@@ -10,7 +10,10 @@ import '../assets/stylesheets/application.scss';
 
 // State and reducers
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
+  messages: messagesReducer,
+  channels: channelsReducer,
+  currentUser: currentUserReducer,
+  selectedChannel: selectedChannelReducer
 });
 
 const initialState = {
