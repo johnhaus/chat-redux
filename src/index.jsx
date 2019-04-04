@@ -11,10 +11,15 @@ import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
 // State and reducers
+import messagesReducer from './reducers/messages_reducer';
+import selectedChannelReducer from './reducers/selected_channel_reducer';
+
+const identityReducer = (state = null) => state;
+
 const reducers = combineReducers({
   messages: messagesReducer,
-  channels: channelsReducer,
-  currentUser: currentUserReducer,
+  channels: identityReducer,
+  currentUser: identityReducer,
   selectedChannel: selectedChannelReducer
 });
 
@@ -26,6 +31,7 @@ const initialState = {
 };
 
 const middlewares = applyMiddleware(logger, reduxPromise);
+const store = createStore(reducers, initialState, middlewares);
 
 // render an instance of the component in the DOM
 ReactDOM.render(
