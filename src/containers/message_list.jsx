@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+import { fetchMessages } from '../actions';
 import Message from '../components/message';
+import MessageForm from '../containers/message_form';
 
 class MessageList extends Component {
   componentWillMount() {
@@ -25,7 +27,7 @@ class MessageList extends Component {
     this.props.fetchMessages(this.props.selectedChannel);
   }
 
-  render() {
+  render () {
     return (
       <div className="channel-container">
         <div className="channel-title">
@@ -34,7 +36,7 @@ class MessageList extends Component {
         <div className="channel-content" ref={(list) => { this.list = list; }}>
           {
             this.props.messages.map((message) => {
-              return <Message key={message.id } message={message} />;
+              return <Message key={message.id} message={message} />;
             })
           }
         </div>
