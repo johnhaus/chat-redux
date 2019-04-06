@@ -21,6 +21,7 @@ const Message = (props) => {
         <span style={{ color: strToRGB(author) }}>{author}</span>
         <small>{time}</small>
       </i>
+      <p>{emojify(content)}</p>
     </div>
   );
 };
