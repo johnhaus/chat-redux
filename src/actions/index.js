@@ -2,7 +2,7 @@ const BASE_URL = 'https://wagon-chat.herokuapp.com';
 
 export const FETCH_MESSAGES = 'FETCH_MESSAGES';
 export const MESSAGE_POSTED = 'MESSAGE_POSTED';
-export const CHANNEL_SELCTED = 'CHANNEL_SELCTED';
+export const CHANNEL_SELECTED = 'CHANNEL_SELECTED';
 
 export function fetchMessages(channel) {
   const url = `${BASE_URL}/${channel}/messages`;
@@ -10,17 +10,17 @@ export function fetchMessages(channel) {
 
   return {
     type: FETCH_MESSAGES,
-    payload: promise
+    payload: promise // Will be resolved by redux-promise
   };
 }
 
 export function createMessage(channel, author, content) {
   const url = `${BASE_URL}/${channel}/messages`;
-  const body = { author, content };
+  const body = { author, content }; // ES6 destructuring
   const promise = fetch(url, {
     method: 'POST',
     headers: {
-      Accempt: 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(body)
@@ -28,13 +28,13 @@ export function createMessage(channel, author, content) {
 
   return {
     type: MESSAGE_POSTED,
-    payload: promise
+    payload: promise // Will be resolved by redux-promise
   };
 }
 
 export function selectChannel(channel) {
   return {
-    type: CHANNEL_SELCTED,
+    type: CHANNEL_SELECTED,
     payload: channel
   };
 }
