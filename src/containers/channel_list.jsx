@@ -1,9 +1,9 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectedChannel, fetchMessages } from '../actions/index';
 
-class ChannelList extend Component {
+class ChannelList extends Component {
   componentWillRecieveProps(nextProps) {
     if (nextProps.selectedChannel !== this.props.selectedChannel) {
       this.props.fetchMessages(nextProps.selectedChannel);
