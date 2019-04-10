@@ -1,3 +1,5 @@
+/* eslint no-alert:off */
+
 // external modules
 import React from 'react';
 import ReactDOM from 'react-dom';
